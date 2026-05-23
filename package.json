@@ -1,0 +1,38 @@
+{
+  "name": "brolang",
+  "version": "0.1.0",
+  "description": "JavaScript transpiler for people who peaked in 1997",
+  "license": "MIT",
+  "author": "dmaxx",
+  "keywords": [
+    "brolang",
+    "transpiler",
+    "javascript",
+    "language",
+    "cli",
+    "bro"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dramxx/brolang.git"
+  },
+  "homepage": "https://github.com/dramxx/brolang#readme",
+  "bugs": {
+    "url": "https://github.com/dramxx/brolang/issues"
+  },
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "README.md"
+  ],
+  "bin": {
+    "bro": "./bin/bro.js"
+  },
+  "scripts": {
+    "test": "node test/transpiler.test.js"
+  }
+}

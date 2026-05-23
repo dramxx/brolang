@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.bro": "javascript"
+  },
+  "javascript.validate.enable": false
+}

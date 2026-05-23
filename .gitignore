@@ -1,0 +1,15 @@
+node_modules/
+
+# generated output from bro build/run
+examples/*.js
+DEMO/**/*.js
+
+# temp files from bro run
+__bro_*
+
+# local tool config
+.claude/settings.local.json
+
+# OS noise
+.DS_Store
+Thumbs.db
