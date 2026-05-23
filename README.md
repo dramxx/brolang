@@ -1,7 +1,5 @@
 # BroLang
 
-A programming language for developers who communicate in modern vernacular. Write code the way you actually talk.
-
 **File extension:** `.bro`  
 **Runtime:** Node.js  
 **Transpiles to:** Vanilla JavaScript
@@ -97,7 +95,7 @@ function greet(name) {
   return "Yo " + name;
 }
 
-const add = function(a, b) {
+const add = function (a, b) {
   return a + b;
 };
 ```
@@ -250,8 +248,12 @@ vibing (lilbro n of nums) {
 
 ```js
 for (let n of nums) {
-  if (n === 0) { continue; }
-  if (n < 0) { break; }
+  if (n === 0) {
+    continue;
+  }
+  if (n < 0) {
+    break;
+  }
   console.log(n);
 }
 ```
@@ -367,9 +369,9 @@ share lilbro MAX_RETRIES = 3
 ```
 
 ```js
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import * as utils from './utils';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import * as utils from "./utils";
 
 export default function MyComponent() {
   return null;
@@ -409,7 +411,7 @@ async function fetchData(url) {
   }
 }
 
-const getData = async function(id) {
+const getData = async function (id) {
   return await fetchData("/api/" + id);
 };
 ```
@@ -425,7 +427,7 @@ const getData = async function(id) {
 #### Literal values
 
 | BroLang   | Value       |
-|-----------|-------------|
+| --------- | ----------- |
 | `cool`    | `true`      |
 | `notcool` | `false`     |
 | `shit`    | `null`      |
@@ -501,25 +503,25 @@ The BroLang runtime is injected into every `.bro` file automatically. No imports
 
 ### Console
 
-| Function               | Description                              |
-|------------------------|------------------------------------------|
-| `spam(...args)`        | Log to stdout                            |
-| `omfg(...args)`        | Log to stderr                            |
-| `omg(...args)`         | Log a warning                            |
-| `spreadshit(data)`     | Print tabular data                       |
-| `debugshit(...args)`   | Debug output                             |
-| `clearshit()`          | Clear the console                        |
-| `timeshit(label)`      | Start a named timer                      |
-| `timeshitdone(label)`  | End a timer and print elapsed time       |
+| Function              | Description                        |
+| --------------------- | ---------------------------------- |
+| `spam(...args)`       | Log to stdout                      |
+| `omfg(...args)`       | Log to stderr                      |
+| `omg(...args)`        | Log a warning                      |
+| `spreadshit(data)`    | Print tabular data                 |
+| `debugshit(...args)`  | Debug output                       |
+| `clearshit()`         | Clear the console                  |
+| `timeshit(label)`     | Start a named timer                |
+| `timeshitdone(label)` | End a timer and print elapsed time |
 
 ```js
-spam("hello world")
-omfg("critical failure")
-omg("this seems sketchy")
-spreadshit(users)
-timeshit("load")
-loadData()
-timeshitdone("load")
+spam("hello world");
+omfg("critical failure");
+omg("this seems sketchy");
+spreadshit(users);
+timeshit("load");
+loadData();
+timeshitdone("load");
 ```
 
 ```js
@@ -536,12 +538,12 @@ console.timeEnd("load");
 
 ### Timers
 
-| Function                   | Description                                   |
-|----------------------------|-----------------------------------------------|
-| `laterbruh(fn, ms)`        | Execute `fn` after `ms` milliseconds          |
-| `keepspamming(fn, ms)`     | Execute `fn` every `ms` milliseconds          |
-| `nevermind(id)`            | Cancel a `laterbruh` timer                    |
-| `shutup(id)`               | Cancel a `keepspamming` interval              |
+| Function               | Description                          |
+| ---------------------- | ------------------------------------ |
+| `laterbruh(fn, ms)`    | Execute `fn` after `ms` milliseconds |
+| `keepspamming(fn, ms)` | Execute `fn` every `ms` milliseconds |
+| `nevermind(id)`        | Cancel a `laterbruh` timer           |
+| `shutup(id)`           | Cancel a `keepspamming` interval     |
 
 ```js
 lilbro id = laterbruh(bro() {
@@ -557,11 +559,11 @@ shutup(ticker)
 ```
 
 ```js
-let id = setTimeout(function() {
+let id = setTimeout(function () {
   console.log("finally");
 }, 3000);
 
-let ticker = setInterval(function() {
+let ticker = setInterval(function () {
   console.log("tick");
 }, 1000);
 
@@ -573,18 +575,18 @@ clearInterval(ticker);
 
 ### Math
 
-| Function                    | Description              |
-|-----------------------------|--------------------------|
-| `dice()`                    | Random float in [0, 1)   |
-| `lowball(n)`                | Floor                    |
-| `highball(n)`               | Ceiling                  |
-| `ballpark(n)`               | Round                    |
-| `bigbro(...n)`              | Maximum value            |
-| `smolbro(...n)`             | Minimum value            |
-| `nominus(n)`                | Absolute value           |
-| `whatroot(n)`               | Square root              |
-| `tothepower(base, exp)`     | Exponentiation           |
-| `PI`                        | 3.14159...               |
+| Function                | Description            |
+| ----------------------- | ---------------------- |
+| `dice()`                | Random float in [0, 1) |
+| `lowball(n)`            | Floor                  |
+| `highball(n)`           | Ceiling                |
+| `ballpark(n)`           | Round                  |
+| `bigbro(...n)`          | Maximum value          |
+| `smolbro(...n)`         | Minimum value          |
+| `nominus(n)`            | Absolute value         |
+| `whatroot(n)`           | Square root            |
+| `tothepower(base, exp)` | Exponentiation         |
+| `PI`                    | 3.14159...             |
 
 ```js
 lilbro rand = lowball(dice() * 100)
@@ -604,29 +606,29 @@ let capped = Math.min(Math.max(val, 0), 100);
 
 Available on all arrays via prototype extension.
 
-| Method                      | Description                            |
-|-----------------------------|----------------------------------------|
-| `.cook(fn)`                 | Transform each element                 |
-| `.keeponly(fn)`             | Filter elements                        |
-| `.smashdown(fn, init)`      | Reduce to a single value               |
-| `.vibecheck(fn)`            | Iterate without collecting results     |
-| `.findone(fn)`              | First element matching predicate       |
-| `.findindex(fn)`            | Index of first match                   |
-| `.gotthis(val)`             | Test element inclusion                 |
-| `.allfine(fn)`              | Test if all elements satisfy predicate |
-| `.anyonegood(fn)`           | Test if any element satisfies          |
-| `.stuffin(val)`             | Append element                         |
-| `.yeetlast()`               | Remove and return last element         |
-| `.stufffirst(val)`          | Prepend element                        |
-| `.yeetfirst()`              | Remove and return first element        |
-| `.glue(sep)`                | Join elements into a string            |
-| `.cutout(s, e)`             | Extract subarray                       |
-| `.surgery(s, d, ...items)`  | In-place insertion/removal             |
-| `.sortitout(fn)`            | Sort in place                          |
-| `.flipit()`                 | Reverse in place                       |
-| `.flatten()`                | Flatten one level of nesting           |
-| `.flatmash(fn)`             | Map then flatten                       |
-| `.howmany`                  | Element count (property, not method)   |
+| Method                     | Description                            |
+| -------------------------- | -------------------------------------- |
+| `.cook(fn)`                | Transform each element                 |
+| `.keeponly(fn)`            | Filter elements                        |
+| `.smashdown(fn, init)`     | Reduce to a single value               |
+| `.vibecheck(fn)`           | Iterate without collecting results     |
+| `.findone(fn)`             | First element matching predicate       |
+| `.findindex(fn)`           | Index of first match                   |
+| `.gotthis(val)`            | Test element inclusion                 |
+| `.allfine(fn)`             | Test if all elements satisfy predicate |
+| `.anyonegood(fn)`          | Test if any element satisfies          |
+| `.stuffin(val)`            | Append element                         |
+| `.yeetlast()`              | Remove and return last element         |
+| `.stufffirst(val)`         | Prepend element                        |
+| `.yeetfirst()`             | Remove and return first element        |
+| `.glue(sep)`               | Join elements into a string            |
+| `.cutout(s, e)`            | Extract subarray                       |
+| `.surgery(s, d, ...items)` | In-place insertion/removal             |
+| `.sortitout(fn)`           | Sort in place                          |
+| `.flipit()`                | Reverse in place                       |
+| `.flatten()`               | Flatten one level of nesting           |
+| `.flatmash(fn)`            | Map then flatten                       |
+| `.howmany`                 | Element count (property, not method)   |
 
 ```js
 lilbro nums = [1, 2, 3, 4, 5]
@@ -648,8 +650,8 @@ let result = nums
   .map((n) => n * 10)
   .reduce((acc, n) => acc + n, 0);
 
-console.log(result);       // 60
-console.log(nums.length);  // 5
+console.log(result); // 60
+console.log(nums.length); // 5
 ```
 
 ---
@@ -658,25 +660,25 @@ console.log(nums.length);  // 5
 
 Available on all strings via prototype extension.
 
-| Method                   | Description                          |
-|--------------------------|--------------------------------------|
-| `.chop(sep)`             | Split into array                     |
-| `.cleanitup()`           | Trim leading and trailing whitespace |
-| `.cleanfront()`          | Trim leading whitespace only         |
-| `.cleanback()`           | Trim trailing whitespace only        |
-| `.gotthis(sub)`          | Test substring inclusion             |
-| `.swapout(old, new)`     | Replace first occurrence             |
-| `.swapallout(old, new)`  | Replace all occurrences              |
-| `.smallify()`            | Lowercase                            |
-| `.bigify()`              | Uppercase                            |
-| `.startswith(s)`         | Test prefix                          |
-| `.endswith(s)`           | Test suffix                          |
-| `.pad(n, char)`          | Left-pad to target length            |
-| `.padback(n, char)`      | Right-pad to target length           |
-| `.cutout(s, e)`          | Substring extraction                 |
-| `.atpos(i)`              | Character at index                   |
-| `.numcode(i)`            | Character code at index              |
-| `.howlong`               | Character count (property, not method) |
+| Method                  | Description                            |
+| ----------------------- | -------------------------------------- |
+| `.chop(sep)`            | Split into array                       |
+| `.cleanitup()`          | Trim leading and trailing whitespace   |
+| `.cleanfront()`         | Trim leading whitespace only           |
+| `.cleanback()`          | Trim trailing whitespace only          |
+| `.gotthis(sub)`         | Test substring inclusion               |
+| `.swapout(old, new)`    | Replace first occurrence               |
+| `.swapallout(old, new)` | Replace all occurrences                |
+| `.smallify()`           | Lowercase                              |
+| `.bigify()`             | Uppercase                              |
+| `.startswith(s)`        | Test prefix                            |
+| `.endswith(s)`          | Test suffix                            |
+| `.pad(n, char)`         | Left-pad to target length              |
+| `.padback(n, char)`     | Right-pad to target length             |
+| `.cutout(s, e)`         | Substring extraction                   |
+| `.atpos(i)`             | Character at index                     |
+| `.numcode(i)`           | Character code at index                |
+| `.howlong`              | Character count (property, not method) |
 
 ```js
 lilbro str = "  Hello World  "
@@ -687,24 +689,24 @@ spam(str.howlong)                   // 15
 
 ```js
 let str = "  Hello World  ";
-console.log(str.trim().toLowerCase());   // "hello world"
-console.log(str.trim().split(" "));      // ["Hello", "World"]
-console.log(str.length);                 // 15
+console.log(str.trim().toLowerCase()); // "hello world"
+console.log(str.trim().split(" ")); // ["Hello", "World"]
+console.log(str.length); // 15
 ```
 
 ---
 
 ### Object Utilities
 
-| Function                    | Description                               |
-|-----------------------------|-------------------------------------------|
-| `listkeys(obj)`             | Array of own enumerable keys              |
-| `listvals(obj)`             | Array of own enumerable values            |
-| `listpairs(obj)`            | Array of `[key, value]` pairs             |
-| `mash(target, ...sources)`  | Merge sources into target (mutates)       |
-| `frozensolid(obj)`          | Prevent any modification to object        |
-| `sealitup(obj)`             | Prevent adding or deleting properties     |
-| `freshobj(proto)`           | Create new object with given prototype    |
+| Function                   | Description                            |
+| -------------------------- | -------------------------------------- |
+| `listkeys(obj)`            | Array of own enumerable keys           |
+| `listvals(obj)`            | Array of own enumerable values         |
+| `listpairs(obj)`           | Array of `[key, value]` pairs          |
+| `mash(target, ...sources)` | Merge sources into target (mutates)    |
+| `frozensolid(obj)`         | Prevent any modification to object     |
+| `sealitup(obj)`            | Prevent adding or deleting properties  |
+| `freshobj(proto)`          | Create new object with given prototype |
 
 ```js
 lilbro person = { name: "Chad", age: 42 }
@@ -728,11 +730,11 @@ for (let [key, val] of Object.entries(person)) {
 
 ### JSON
 
-| Function                  | Description                              |
-|---------------------------|------------------------------------------|
-| `textify(val)`            | Serialize value to JSON string           |
-| `textifypretty(val, n)`   | Serialize with `n`-space indentation     |
-| `untext(str)`             | Parse JSON string to value               |
+| Function                | Description                          |
+| ----------------------- | ------------------------------------ |
+| `textify(val)`          | Serialize value to JSON string       |
+| `textifypretty(val, n)` | Serialize with `n`-space indentation |
+| `untext(str)`           | Parse JSON string to value           |
 
 ```js
 lilbro payload = { name: "BroLang", version: 1 }
@@ -758,22 +760,22 @@ console.log(parsed.name);
 
 `pinkyswear` is the Promise interface. Use `fresh pinkyswear(fn)` to construct a new promise.
 
-| Expression                       | Description                              |
-|----------------------------------|------------------------------------------|
-| `fresh pinkyswear(fn)`           | Create a new promise                     |
-| `pinkyswear.sorted(val)`         | Resolved promise wrapping `val`          |
-| `pinkyswear.noped(err)`          | Rejected promise with `err`              |
-| `pinkyswear.waitforall(arr)`     | Resolve when all promises resolve        |
-| `pinkyswear.firstfinish(arr)`    | Settle when first promise settles        |
-| `pinkyswear.nodrama(arr)`        | Wait for all, regardless of rejection    |
+| Expression                    | Description                           |
+| ----------------------------- | ------------------------------------- |
+| `fresh pinkyswear(fn)`        | Create a new promise                  |
+| `pinkyswear.sorted(val)`      | Resolved promise wrapping `val`       |
+| `pinkyswear.noped(err)`       | Rejected promise with `err`           |
+| `pinkyswear.waitforall(arr)`  | Resolve when all promises resolve     |
+| `pinkyswear.firstfinish(arr)` | Settle when first promise settles     |
+| `pinkyswear.nodrama(arr)`     | Wait for all, regardless of rejection |
 
 Promise chain methods:
 
-| Method              | Description                              |
-|---------------------|------------------------------------------|
-| `.thendo(fn)`       | Run `fn` on fulfillment                  |
-| `.otherwise(fn)`    | Run `fn` on rejection                    |
-| `.nomatterwhat(fn)` | Run `fn` on either outcome               |
+| Method              | Description                |
+| ------------------- | -------------------------- |
+| `.thendo(fn)`       | Run `fn` on fulfillment    |
+| `.otherwise(fn)`    | Run `fn` on rejection      |
+| `.nomatterwhat(fn)` | Run `fn` on either outcome |
 
 ```js
 lilbro p = fresh pinkyswear(bro(win, fail) {
@@ -791,7 +793,7 @@ p
 ```
 
 ```js
-let p = new Promise(function(resolve, reject) {
+let p = new Promise(function (resolve, reject) {
   if (condition) {
     resolve("sorted!");
   } else {
@@ -799,8 +801,7 @@ let p = new Promise(function(resolve, reject) {
   }
 });
 
-p
-  .then((val) => console.log(val))
+p.then((val) => console.log(val))
   .catch((err) => console.error(err))
   .finally(() => console.log("done"));
 ```
@@ -811,21 +812,21 @@ p
 
 DOM helpers are available in browser environments. In Node.js, query functions return `null` or `[]` stubs.
 
-| Function / Property          | Description                              |
-|------------------------------|------------------------------------------|
-| `findthisshit(id)`           | Element by ID                            |
-| `findme(sel)`                | First element matching CSS selector      |
-| `findallofthem(sel)`         | All elements matching CSS selector       |
-| `makething(tag)`             | Create a new element                     |
-| `.whenthishappens(ev, fn)`   | Attach event listener                    |
-| `.stoplistening(ev, fn)`     | Remove event listener                    |
-| `.addtodoc(child)`           | Append child node                        |
-| `.kickout(child)`            | Remove child node                        |
-| `.text`                      | Get/set text content (property)          |
-| `.html`                      | Get/set inner HTML (property)            |
-| `.classes`                   | ClassList reference                      |
-| `.attr(name, val)`           | Set attribute                            |
-| `.getattr(name)`             | Get attribute                            |
+| Function / Property        | Description                         |
+| -------------------------- | ----------------------------------- |
+| `findthisshit(id)`         | Element by ID                       |
+| `findme(sel)`              | First element matching CSS selector |
+| `findallofthem(sel)`       | All elements matching CSS selector  |
+| `makething(tag)`           | Create a new element                |
+| `.whenthishappens(ev, fn)` | Attach event listener               |
+| `.stoplistening(ev, fn)`   | Remove event listener               |
+| `.addtodoc(child)`         | Append child node                   |
+| `.kickout(child)`          | Remove child node                   |
+| `.text`                    | Get/set text content (property)     |
+| `.html`                    | Get/set inner HTML (property)       |
+| `.classes`                 | ClassList reference                 |
+| `.attr(name, val)`         | Set attribute                       |
+| `.getattr(name)`           | Get attribute                       |
 
 ```js
 lilbro btn = findme("#submit")
@@ -841,7 +842,7 @@ btn.whenthishappens("click", bro(e) {
 ```js
 let btn = document.querySelector("#submit");
 
-btn.addEventListener("click", function(e) {
+btn.addEventListener("click", function (e) {
   let div = document.createElement("div");
   div.textContent = "Submitted!";
   div.classList.add("success");
@@ -853,13 +854,13 @@ btn.addEventListener("click", function(e) {
 
 ### Type Checking
 
-| Function        | Description                                        |
-|-----------------|----------------------------------------------------|
-| `wtf(x)`        | Type of `x` as a string                            |
-| `x ispartof Y`  | `true` if `x` is an instance of `Y`                |
-| `isalist(x)`    | `true` if `x` is an array                          |
-| `isnothing(x)`  | `true` if `x` is `shit` (`null`) or `idk` (`undefined`) |
-| `exists(x)`     | `true` if `x` is neither `shit` nor `idk`          |
+| Function       | Description                                             |
+| -------------- | ------------------------------------------------------- |
+| `wtf(x)`       | Type of `x` as a string                                 |
+| `x ispartof Y` | `true` if `x` is an instance of `Y`                     |
+| `isalist(x)`   | `true` if `x` is an array                               |
+| `isnothing(x)` | `true` if `x` is `shit` (`null`) or `idk` (`undefined`) |
+| `exists(x)`    | `true` if `x` is neither `shit` nor `idk`               |
 
 ```js
 sus (isnothing(user)) {
@@ -881,7 +882,7 @@ if (user === null || user === undefined) {
 }
 
 if (Array.isArray(data)) {
-  data.forEach(function(item) {
+  data.forEach(function (item) {
     if (typeof item.id === "number") {
       console.log(item.id);
     }
@@ -931,4 +932,4 @@ x ispartof Y              x instanceof Y
 
 ---
 
-*BroLang — because someone had to do it.*
+_BroLang — because someone had to do it._
