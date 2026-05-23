@@ -1,6 +1,6 @@
 {
-  "name": "brolang",
-  "version": "0.1.0",
+  "name": "@dramxx/brolang",
+  "version": "0.1.1",
   "description": "JavaScript transpiler for people who peaked in 1997",
   "license": "MIT",
   "author": "dmaxx",
